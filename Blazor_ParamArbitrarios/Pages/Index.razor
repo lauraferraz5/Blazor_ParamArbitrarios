@@ -1,0 +1,25 @@
+﻿@page "/"
+@*uma das formas de passar os atributos*@
+@*<Home Titulo="Bem-Vindo à loja do Macoratti"
+          src="./imagens/produtos.jpg"
+          alt="Meus Produtos"
+          clas="img-fluid">
+
+    </Home>*@
+
+@*outra forma de passar os atributos*@
+<Home Titulo="Bem-Vindo à loja do Macoratti"
+      @attributes="MeusParametros">
+
+</Home>
+
+@code{
+    public Dictionary<string, object> MeusParametros { get; set; } =
+        new Dictionary<string, object>
+        {
+            {"src", "./imagens/produtos.jpg" },
+            {"alt", "Meus Produtos" },
+            {"height", 100 },
+            {"width", 700 }
+        };
+}

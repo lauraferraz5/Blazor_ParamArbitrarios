@@ -1,0 +1,21 @@
+﻿<div style="text-align:center">
+    <h3>
+        @Titulo
+    </h3>
+    <p>
+        <a href="https://macorattinet.lojavirtualnuvem.com.br/" target="_blank">Visite nossa loja</a>
+    </p>
+    <p>
+        <img @attributes="ParametrosAdicionais" />
+    </p>
+</div>
+
+@*é possível passar valores padrão. ex.: a tag img poderia ficar <img src="./imagens/produtos.jpg" @attributes="ParametrosAdicionais" />, e caso não passe valores para esse atributo, usará essa imagem padrão*@
+
+@code {
+    [Parameter] public string Titulo { get; set; }
+
+    //vai capturar valores não coincidentes, todos os atributos que forem passados para o componente e que não correspondem com  o parâmetro que esteja declarado no componente. Se passar outra, ele sobrescreve
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> ParametrosAdicionais { get; set; }
+}
